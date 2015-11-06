@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		261E21DB1BEC1A5C00B3CE35 /* PlanTripsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E21DA1BEC1A5C00B3CE35 /* PlanTripsTVC.swift */; settings = {ASSET_TAGS = (); }; };
+		261E21DF1BEC3BA200B3CE35 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E21DE1BEC3BA200B3CE35 /* CoreDataStack.swift */; settings = {ASSET_TAGS = (); }; };
 		265761A91BEBDA65006569C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265761A81BEBDA65006569C7 /* AppDelegate.swift */; };
 		265761AB1BEBDA65006569C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265761AA1BEBDA65006569C7 /* ViewController.swift */; };
 		265761AE1BEBDA65006569C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 265761AC1BEBDA65006569C7 /* Main.storyboard */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		261E21DA1BEC1A5C00B3CE35 /* PlanTripsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanTripsTVC.swift; sourceTree = "<group>"; };
+		261E21DE1BEC3BA200B3CE35 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		265761A51BEBDA65006569C7 /* TripPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		265761A81BEBDA65006569C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		265761AA1BEBDA65006569C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,7 +108,9 @@
 			children = (
 				265761A81BEBDA65006569C7 /* AppDelegate.swift */,
 				265761AA1BEBDA65006569C7 /* ViewController.swift */,
+				261E21DA1BEC1A5C00B3CE35 /* PlanTripsTVC.swift */,
 				265761DA1BEBE194006569C7 /* AddTripController.swift */,
+				261E21DE1BEC3BA200B3CE35 /* CoreDataStack.swift */,
 			);
 			path = TripPlanner;
 			sourceTree = "<group>";
@@ -272,6 +278,8 @@
 			files = (
 				265761AB1BEBDA65006569C7 /* ViewController.swift in Sources */,
 				265761B11BEBDA65006569C7 /* TripPlanner.xcdatamodeld in Sources */,
+				261E21DB1BEC1A5C00B3CE35 /* PlanTripsTVC.swift in Sources */,
+				261E21DF1BEC3BA200B3CE35 /* CoreDataStack.swift in Sources */,
 				265761DB1BEBE195006569C7 /* AddTripController.swift in Sources */,
 				265761A91BEBDA65006569C7 /* AppDelegate.swift in Sources */,
 			);
@@ -500,6 +508,7 @@
 				265761D21BEBDA65006569C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		265761D31BEBDA65006569C7 /* Build configuration list for PBXNativeTarget "TripPlannerTests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +517,7 @@
 				265761D51BEBDA65006569C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		265761D61BEBDA65006569C7 /* Build configuration list for PBXNativeTarget "TripPlannerUITests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +526,7 @@
 				265761D81BEBDA65006569C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

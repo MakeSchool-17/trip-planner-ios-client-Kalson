@@ -7,7 +7,7 @@
         <!--Planned Trips-->
         <scene sceneID="Q8J-fy-gi3">
             <objects>
-                <tableViewController id="gxc-P6-eTA" sceneMemberID="viewController">
+                <tableViewController id="gxc-P6-eTA" customClass="PlanTripsTVC" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="o0g-tj-g7D">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,7 +33,7 @@
                     <navigationItem key="navigationItem" title="Planned Trips" id="6zX-sj-Ydu">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="OOT-ad-FxN">
                             <connections>
-                                <segue destination="tBm-MF-adA" kind="modal" id="NWz-jY-XU8"/>
+                                <segue destination="tBm-MF-adA" kind="modal" identifier="addTrips" id="NWz-jY-XU8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -81,10 +81,16 @@
                                 <action selector="cancelButtonAction:" destination="TOa-bx-bMU" id="d2h-rX-itG"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="BK1-X7-73L"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="BK1-X7-73L">
+                            <connections>
+                                <action selector="addNewTrip:" destination="TOa-bx-bMU" id="2zB-Gp-8PS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="BK1-X7-73L" id="Reo-9f-6Sp"/>
                         <outlet property="cancelButton" destination="2gG-dm-B8Y" id="h8Z-Nt-ROC"/>
+                        <outlet property="tripNameTextField" destination="QU9-mq-dwj" id="fes-pR-0Mh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAj-wC-2Uw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -265,7 +271,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Wavepoint" id="G8h-DB-ByY">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="YCx-Z8-wrW">
+                        <barButtonItem key="leftBarButtonItem" style="done" id="YCx-Z8-wrW">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YeF-sr-b49">
                                 <rect key="frame" x="16" y="7" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
