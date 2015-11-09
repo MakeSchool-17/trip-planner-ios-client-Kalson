@@ -17,11 +17,8 @@ class AddTripController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var tripNameTextField: UITextField!
     
-    var tripNames = [NSManagedObject]()
-    
     @IBAction func addNewTrip(sender: AnyObject) {
         addThoseTrips()
-        print(self.tripNames)
     }
     
     @IBAction func cancelButtonAction(sender: AnyObject) {
@@ -41,42 +38,21 @@ class AddTripController: UIViewController, UITextFieldDelegate {
         
         self.dismissViewControllerAnimated(true, completion: nil)
         
-        print(self.tripNames)
     }
     
     func saveName(name: String){
-        
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate // pull the App Delegate
-        let manageContext = appDelegate.managedObjectContext // reference the context
-        
-        // instantiate the entity with the manage object context
-        let entity = NSEntityDescription.entityForName("PlanTrip", inManagedObjectContext: manageContext)
-        
-        // instantiate the manage object and insert in the mangae object context
-        let tripName = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: manageContext)
-        
-        // set the value for the attribute of the manageobject
-        tripName.setValue(name, forKey: "name")
-        
-        do {
-            try manageContext.save()
-            self.tripNames.append(tripName)
-        } catch let error as NSError {
-            print("Could not save \(error),\(error.userInfo)")
-        }
+        CoreDataHelper.saveTrip(name)
+        print("this is the trip = \(name)")
     }
     
    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
-        
         self.tripNameTextField.delegate = self // tell the tripNameTextField that its the delegate for the UItextField protocol
         self.tripNameTextField.becomeFirstResponder()
         self.cancelButton = UIBarButtonItem(title: "Yay", style: .Done, target: self, action: Selector("cancelButtonAction"))

@@ -140,7 +140,7 @@
                                 <animations/>
                                 <state key="normal" title="Get Started!"/>
                                 <connections>
-                                    <segue destination="yIH-L4-q0g" kind="push" identifier="addWayPoint" id="fS3-Ge-yJu"/>
+                                    <segue destination="6Jq-Nk-UfX" kind="modal" identifier="addWayPoint" id="fS3-Ge-yJu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -175,7 +175,7 @@
                                 <animations/>
                                 <state key="normal" title="Add more wavepoints"/>
                                 <connections>
-                                    <segue destination="yIH-L4-q0g" kind="push" identifier="addWayPoint" id="g3X-jw-Sst"/>
+                                    <segue destination="6Jq-Nk-UfX" kind="modal" identifier="addWayPoint" id="g3X-jw-Sst"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cqW-83-sZN">
@@ -252,11 +252,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aMg-aX-YdZ">
-                                <rect key="frame" x="0.0" y="281" width="320" height="287"/>
-                                <animations/>
-                            </mapView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DUA-P1-klC">
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="DUA-P1-klC">
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <animations/>
                                 <textInputTraits key="textInputTraits"/>
@@ -266,6 +262,10 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Hh9-W2-AW3">
+                                <rect key="frame" x="0.0" y="282" width="320" height="286"/>
+                                <animations/>
+                            </mapView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -277,14 +277,26 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonAction:" destination="yIH-L4-q0g" eventType="touchUpInside" id="s7C-q4-RVF"/>
+                                </connections>
                             </button>
+                            <connections>
+                                <action selector="cancelButtonAction:" destination="yIH-L4-q0g" id="fpb-eB-6dE"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add" id="WVC-IA-cz6"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="cancelButton" destination="YeF-sr-b49" id="fi1-IE-bw4"/>
+                        <outlet property="myMapView" destination="Hh9-W2-AW3" id="FUQ-2W-XtG"/>
+                        <outlet property="mySearchBar" destination="DUA-P1-klC" id="a0u-lS-CeT"/>
+                        <outlet property="myTableView" destination="oad-nv-Txe" id="HUs-o5-th2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tSc-4Z-gmT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="371" y="1543"/>
+            <point key="canvasLocation" x="903" y="1543"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AJh-Lc-arT">
@@ -304,6 +316,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qiq-qG-HhY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="583" y="-652"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ywp-EU-HwV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Jq-Nk-UfX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z1t-5d-eew">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yIH-L4-q0g" kind="relationship" relationship="rootViewController" id="Lx8-dJ-a0Z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7bK-Ew-JxI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="371" y="1543"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

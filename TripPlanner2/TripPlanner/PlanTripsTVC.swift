@@ -12,29 +12,18 @@ import CoreData
 class PlanTripsTVC: UITableViewController {
     
     var addTripC = AddTripController()
-    var tripNames = [NSManagedObject]()
-
+    var tripNames = [PlanTrip]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
     override func viewWillAppear(animated: Bool) {
-        
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate // pull the appDelegate
-        let manageContext = appDelegate.managedObjectContext // reference the manageObjectContext
-        
-        // instantiate the fetch request and fetch the entity
-        let fetchRequest = NSFetchRequest(entityName: "PlanTrip")
-        
-        do {
-            let results = try manageContext.executeFetchRequest(fetchRequest)
-            tripNames = results as! [NSManagedObject] // return the array of manage objects
-        } catch let error as NSError {
-            print("Could not fetch \(error),\(error.userInfo)")
-        }
-        
+
+        tripNames = CoreDataHelper.allTrips()
         tableView.reloadData()
+        print(tripNames)
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -54,27 +43,39 @@ class PlanTripsTVC: UITableViewController {
         let tripName = tripNames[indexPath.row]
         
         // Configure the cell...
-        cell.textLabel?.text = tripName.valueForKey("name") as? String
+        cell.textLabel?.text = tripName.name
         
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
+        let selectedTrip = tripNames[indexPath.row]
+        let stuff = selectedTrip.valueForKey("name")
+        print("Selected Trip = \(stuff!)")
         self.performSegueWithIdentifier("noWayPoint", sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "addTrips"{
-            let navController = segue.destinationViewController as! UINavigationController
-            let destinationController = navController.topViewController as! AddTripController
-            destinationController.tripNames = self.tripNames
-            
-        }
+//        if segue.identifier == "addTrips"{
+//            let navController = segue.destinationViewController as! UINavigationController
+//            let destinationController = navController.topViewController as! AddTripController
+////            destinationController.tripNames = self.tripNames
+//            
+//        }
         
     }
+    
+//    func returnWays(name: "String") -> [Waypoint]{
+//    let fetchRequest = NSFetchRequest(entityName: "Waypoint")
+//    fetchRequest.predicate =  NSPredicate(format: "trip = %@", trip)
+//    fetchRequest.returnsObjectsAsFaults = false
+//    
+//    let ways = try! managedObjectContext.executeFetchRequest(fetchRequest) as! [Waypoint]
+//    
+//    return ways
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

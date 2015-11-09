@@ -10,6 +10,13 @@ import UIKit
 import MapKit
 
 class AddWayPointViewController: UIViewController {
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBAction func cancelButtonAction(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    @IBOutlet weak var myMapView: MKMapView!
+    @IBOutlet weak var mySearchBar: UISearchBar!
+    @IBOutlet weak var myTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
