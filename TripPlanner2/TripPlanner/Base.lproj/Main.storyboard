@@ -38,8 +38,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="FeZ-LO-Qdr" kind="push" id="gVW-ur-8O0"/>
-                        <segue destination="YX5-1r-ju5" kind="push" id="sv7-hz-YvH"/>
+                        <segue destination="FeZ-LO-Qdr" kind="push" identifier="noWayPoint" id="gVW-ur-8O0"/>
+                        <segue destination="YX5-1r-ju5" kind="push" identifier="WayPoint" id="sv7-hz-YvH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FbS-Ig-ihP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -140,7 +140,7 @@
                                 <animations/>
                                 <state key="normal" title="Get Started!"/>
                                 <connections>
-                                    <segue destination="yIH-L4-q0g" kind="push" id="fS3-Ge-yJu"/>
+                                    <segue destination="yIH-L4-q0g" kind="push" identifier="addWayPoint" id="fS3-Ge-yJu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -175,7 +175,7 @@
                                 <animations/>
                                 <state key="normal" title="Add more wavepoints"/>
                                 <connections>
-                                    <segue destination="yIH-L4-q0g" kind="push" id="g3X-jw-Sst"/>
+                                    <segue destination="yIH-L4-q0g" kind="push" identifier="addWayPoint" id="g3X-jw-Sst"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cqW-83-sZN">
@@ -238,12 +238,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAW-hz-k1M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="583" y="1415"/>
+            <point key="canvasLocation" x="1069" y="737"/>
         </scene>
         <!--Add Wavepoint-->
         <scene sceneID="BN3-17-1dT">
             <objects>
-                <viewController id="yIH-L4-q0g" sceneMemberID="viewController">
+                <viewController id="yIH-L4-q0g" customClass="AddWayPointViewController" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3tS-0p-4ID"/>
                         <viewControllerLayoutGuide type="bottom" id="lFe-dg-raw"/>
@@ -284,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tSc-4Z-gmT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="737"/>
+            <point key="canvasLocation" x="371" y="1543"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AJh-Lc-arT">

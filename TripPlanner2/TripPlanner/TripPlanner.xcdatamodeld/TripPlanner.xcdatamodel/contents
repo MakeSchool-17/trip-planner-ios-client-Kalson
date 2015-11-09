@@ -2,8 +2,16 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="15A279b" minimumToolsVersion="Automatic">
     <entity name="PlanTrip" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="waypoint" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WayPoint" syncable="YES"/>
+    </entity>
+    <entity name="WayPoint" syncable="YES">
+        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="trip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlanTrip" syncable="YES"/>
     </entity>
     <elements>
-        <element name="PlanTrip" positionX="-63" positionY="-18" width="128" height="60"/>
+        <element name="PlanTrip" positionX="-414" positionY="51" width="128" height="75"/>
+        <element name="WayPoint" positionX="-36" positionY="18" width="128" height="105"/>
     </elements>
 </model>

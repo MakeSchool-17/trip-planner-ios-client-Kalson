@@ -17,7 +17,6 @@ class AddTripController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var tripNameTextField: UITextField!
     
-//    var tripName: [String] = []
     var tripNames = [NSManagedObject]()
     
     @IBAction func addNewTrip(sender: AnyObject) {
